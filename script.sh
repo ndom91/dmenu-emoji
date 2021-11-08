@@ -12,11 +12,10 @@ case "$1" in
     if [ ! -z "$input" ]; then
       emoji=${input: -1}
       echo -n "$emoji" | xclip -selection c
-      command -v notify-send > /dev/null && notify-send -t 200 "$emoji copied!"
     fi
     ;;
   "")
-    bash $0 list | dmenu -p 'Emoji: ' | bash $0 copy
+    bash $0 list | dmenu -i -nb '#292d3e' -nf '#bbc5ff' -sb '#ff79c6'  -sf '#292d3e' -fn 'FiraMono Nerd Font-12' -p 'Emoji: ' | bash $0 copy
     ;;
 esac
 
